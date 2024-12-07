@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #91b9f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  /* Container Styles */
+  .container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333333;
+  }
+
+  /* Form Styles */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555555;
+  }
+
+  input[type="mail"],
+  input[type="text"] {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  input[type="mail"]:focus,
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  /* Button Styles */
+  .btn {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: #0056b3;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      width: 90%;
+    }
+  }
+
+
+    </style>
+</head>
+<body>
+    <div class="container" id="login">
+        <h1>Login Page!</h1>
+        <form action="">
+            <label for="email">Email Address</label><br>
+            <input type="mail" placeholder="Enter Email" id="email"><br>
+            <label for="password">Password</label><br>
+            <input type="text" placeholder="Enter Password" id="password"><br>
+            <button class="btn">Submit</button>
+        </form>
+    </div>
+    <script>
+
+
+        let login = document.getElementById("login").addEventListener("submit",function(event){
+            event.preventDefault();
+           
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/;
+
+        if(emailPattern.test(email) && passwordPattern.test(password)){
+            alert("Login Successfull");
+            document.getElementById("email").value = "";
+            document.getElementById("password").value = "";
+        }else{
+            alert("enter valid input");
+            document.getElementById("email").value = "";
+            document.getElementById("password").value = "";
+        }
+        
+    })
+    
+    </script>
+</body>
+</html>
